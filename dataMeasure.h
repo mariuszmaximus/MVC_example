@@ -10,7 +10,7 @@ struct Measure
   int id{0};
   std::string time{"2023-01-01 11:11"};
   std::string name{"Kowalski"};
-  std::string image{"image.png"};
+  std::string image{"image.bmp"};
   bool checked{false};
   std::string desc;
 };
