@@ -35,6 +35,12 @@ set(PROJECT_SOURCES
 
         modelMeasure.cpp
         modelMeasure.h
+
+        delegate001.cpp
+        delegate001.h
+
+        delegate002.cpp
+        delegate002.h        
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -74,7 +80,7 @@ set_target_properties(MVC_example PROPERTIES
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
+    WIN32_EXECUTABLE FALSE
 )
 
 include(GNUInstallDirs)

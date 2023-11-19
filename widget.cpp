@@ -1,6 +1,8 @@
 #include "widget.h"
 #include "./ui_widget.h"
 
+#include "delegate001.h"
+#include "delegate002.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -13,7 +15,10 @@ Widget::Widget(QWidget *parent)
 
     ui->tableView->setModel(model);
     ui->listView->setModel(model);
- 
+
+
+    // ui->tableView->setItemDelegate(new Delegate001);
+    ui->listView->setItemDelegate(new Delegate002);
     // //  https://stackoverflow.com/questions/19001933/qt-hide-column-in-qtableview
     // ui->tableView->setColumnHidden(3, true);
     // ui->tableView->setColumnHidden(4, true);
@@ -22,7 +27,7 @@ Widget::Widget(QWidget *parent)
     // ui->tableView->horizontalHeader()->hideSection(4); 
 
 
-    // ui->listView->setViewMode(QListView::ViewMode::IconMode);
+    ui->listView->setViewMode(QListView::ViewMode::IconMode);
 }
 
 Widget::~Widget()
