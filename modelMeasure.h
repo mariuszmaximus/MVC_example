@@ -2,7 +2,7 @@
 
 
 #include <QAbstractTableModel>
-
+#include <QDebug>
 #include "dataMeasure.h"
 
 
@@ -20,4 +20,20 @@ private:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+public:
+
+    bool removeRows(int position, int rows, const QModelIndex &parent = QModelIndex()) override
+    {
+        beginRemoveRows(QModelIndex(), position, position + rows - 1);
+        qDebug() <<    "removeRows";   
+        // return QAbstractTableModel::removeRows(row,count, parent);  
+
+        for (int row = 0; row < rows; ++row)
+            m_dataMeasure->del(position); //         contacts.removeAt(position);
+
+        endRemoveRows();
+        return true;
+
+    }
 };

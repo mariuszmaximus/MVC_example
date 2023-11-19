@@ -18,10 +18,15 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Widget *ui;
 
     DataMeasure m_data;
+
+    ModelMeasure *model;
 
 };
 #endif // WIDGET_H

@@ -13,6 +13,15 @@ void Delegate002::paint(QPainter *painter, const QStyleOptionViewItem &option,
     // fmt::print("Delegate002::paint, index.column()={} index.row()={}\n", index.column(), index.row());
     
 
+    QVariant value = index.model()->data(index, Qt::UserRole);
+     qDebug() << "value:" << value;
+     qDebug() << "rowCount:" << index.model()->rowCount();
+     qDebug() << "index:" << index.model()->index(index.row(),3).data();
+
+     QString s = index.model()->index(index.row(),3).data().toString();
+
+
+
 
 
     if(index.column()==0)
@@ -32,7 +41,7 @@ void Delegate002::paint(QPainter *painter, const QStyleOptionViewItem &option,
         r.setSize(QSize(r.width()-1, r.height()-1));
 
         // painter->fillRect(option.rect, Qt::red);
-        auto filename = fmt::format("image{}.bmp", index.row()); 
+        auto filename =  s.toStdString();// fmt::format("image{}.bmp", index.row()); 
         QImage img(QString::fromStdString(filename));
         painter->drawImage(r,img);
     }

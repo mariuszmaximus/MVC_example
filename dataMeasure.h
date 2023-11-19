@@ -5,6 +5,15 @@
 #include <fmt/core.h>
 #include "CImg.h"
 
+
+#include <qmetatype.h>      // Q_DECLARE_METATYPE
+class MData
+{
+
+};
+
+Q_DECLARE_METATYPE(MData)
+
 struct Measure
 {
   int id{0};
@@ -64,5 +73,10 @@ public:
   Measure &getMeasure(size_t idx)
   {
     return m_data[idx];
+  }
+
+  void del(int32_t id)
+  {
+    m_data.erase(m_data.begin());;
   }
 };
